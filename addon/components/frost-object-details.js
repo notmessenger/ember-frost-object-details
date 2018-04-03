@@ -1,7 +1,8 @@
-import Ember from 'ember'
-const {Component, get, guidFor, set} = Ember
+import Component from '@ember/component';
+import { guidFor } from '@ember/object/internals';
+import { set, get } from '@ember/object';
 import layout from '../templates/components/frost-object-details'
-import PropTypesMixin, {PropTypes} from 'ember-prop-types'
+import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 
 export default Component.extend(PropTypesMixin, {
   // == Component properties ==================================================

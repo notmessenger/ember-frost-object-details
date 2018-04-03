@@ -1,9 +1,9 @@
-import {expect} from 'chai'
-import {$hook, initialize as initializeHook} from 'ember-hook'
+import { expect } from 'chai'
+import { $hook, initialize as initializeHook } from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
-import {integration} from 'ember-test-utils/test-support/setup-component-test'
+import { integration } from 'ember-test-utils/test-support/setup-component-test'
 import hbs from 'htmlbars-inline-precompile'
-import {beforeEach, describe, it} from 'mocha'
+import { beforeEach, describe, it } from 'mocha'
 import sinon from 'sinon'
 
 const defaultPack = 'app'

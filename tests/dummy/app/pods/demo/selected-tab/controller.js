@@ -1,5 +1,4 @@
-import Ember from 'ember'
-const {Controller} = Ember
+import Controller from '@ember/controller';
 
 // BEGIN-SNIPPET selected-tab-controller
 export default Controller.extend({

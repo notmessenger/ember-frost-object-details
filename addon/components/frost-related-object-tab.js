@@ -1,9 +1,7 @@
-import Ember from 'ember'
+import Component from '@ember/component';
 import layout from '../templates/components/frost-related-object-tab'
-import computed, {readOnly} from 'ember-computed-decorators'
-import PropTypesMixin, {PropTypes} from 'ember-prop-types'
-
-const {Component} = Ember
+import computed, { readOnly } from 'ember-computed-decorators'
+import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 
 export default Component.extend(PropTypesMixin, {
   // == Component properties ==================================================

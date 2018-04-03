@@ -1,4 +1,4 @@
-import {Factory, faker} from 'ember-cli-mirage'
+import { Factory, faker } from 'ember-cli-mirage'
 
 export default Factory.extend({
   'first-name': faker.name.firstName,

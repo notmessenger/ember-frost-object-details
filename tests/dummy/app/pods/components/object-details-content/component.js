@@ -1,6 +1,6 @@
-import Ember from 'ember'
-const {Component} = Ember
-import computed, {readOnly} from 'ember-computed-decorators'
+import { htmlSafe } from '@ember/string';
+import Component from '@ember/component';
+import computed, { readOnly } from 'ember-computed-decorators'
 import layout from './template'
 
 export default Component.extend({
@@ -13,6 +13,6 @@ export default Component.extend({
       'height: 200px'
     ]
       .join(';')
-    return Ember.String.htmlSafe(style)
+    return htmlSafe(style);
   }
 })
