@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { isEmpty } from '@ember/utils';
 import { on } from '@ember/object/evented';
 import layout from '../templates/components/frost-object-tab'
-import computed, { readOnly } from 'ember-computed-decorators'
+import {computed, readOnly} from 'ember-decorators/object'
 import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 
 export default Component.extend(PropTypesMixin, {
@@ -42,21 +42,23 @@ export default Component.extend(PropTypesMixin, {
 
   @readOnly
   @computed('selectedTabId', 'defaultTabId', 'selectedTabType')
-  isSelected (selectedTabId, defaultTabId, selectedTabType) {
+  get isSelected () {
+    const selectedTabId = this.get('selectedTabId')
     const tabId = this.id
 
     return tabId === selectedTabId ||
-      ((isEmpty(selectedTabId) ||
-        isEmpty(selectedTabType)) &&
-        tabId === defaultTabId)
+      (
+        (isEmpty(selectedTabId) || isEmpty(this.get('selectedTabType'))) &&
+        tabId === this.get('defaultTabId')
+      )
   },
 
   @readOnly
   @computed('isSelected', 'selectedTabType', 'type', 'id', 'defaultTabId')
-  isDefault (isSelected, selectedTabType, type, id, defaultTabId) {
-    return !isSelected &&
-      selectedTabType !== type &&
-      id === defaultTabId
+  get isDefault () {
+    return !this.get('isSelected') &&
+      this.get('selectedTabType') !== this.get('type') &&
+      this.get('id') === this.get('defaultTabId')
   },
 
   // == Events ================================================================
