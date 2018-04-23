@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { isEmpty } from '@ember/utils';
 import { on } from '@ember/object/evented';
 import layout from '../templates/components/frost-object-tab'
-import {computed, readOnly} from 'ember-decorators/object'
+import {computed} from 'ember-decorators/object'
 import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 
 export default Component.extend(PropTypesMixin, {
@@ -40,7 +40,6 @@ export default Component.extend(PropTypesMixin, {
 
   // == Computed properties ===================================================
 
-  @readOnly
   @computed('selectedTabId', 'defaultTabId', 'selectedTabType')
   get isSelected () {
     const selectedTabId = this.get('selectedTabId')
@@ -53,7 +52,6 @@ export default Component.extend(PropTypesMixin, {
       )
   },
 
-  @readOnly
   @computed('isSelected', 'selectedTabType', 'type', 'id', 'defaultTabId')
   get isDefault () {
     return !this.get('isSelected') &&

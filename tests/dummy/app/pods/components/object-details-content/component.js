@@ -5,7 +5,6 @@ import layout from './template'
 
 export default Component.extend({
   layout,
-  @readOnly
   @computed('color')
   get colorStyle () {
     const style = [

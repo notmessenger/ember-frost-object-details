@@ -11,10 +11,10 @@ export default Component.extend(PropTypesMixin, {
   classNames: ['frost-object-details'],
 
   // == State properties ======================================================
-  orderedTabIds: [],
-  tabTypeMap: {},
+  orderedTabIds: [], // eslint-disable-line ember/avoid-leaking-state-in-ember-objects
+  tabTypeMap: {}, // eslint-disable-line ember/avoid-leaking-state-in-ember-objects
 
-  propTypes: {
+  propTypes: { // eslint-disable-line ember/avoid-leaking-state-in-ember-objects
     selectedTabId: PropTypes.string.isRequired,
     selectedTabType: PropTypes.string.isRequired,
     defaultTabId: PropTypes.string.isRequired,

@@ -2,11 +2,12 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon')
 
+const environment = process.env.EMBER_ENV
+const isTesting = environment === 'test'
+
 module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
-    babel: {
-      optional: ['es7.decorators']
-    },
+    hinting: !isTesting,
     snippetSearchPaths: [
       'addon',
       'tests/dummy'
