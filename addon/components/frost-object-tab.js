@@ -35,6 +35,11 @@ export default Component.extend(PropTypesMixin, {
     // This needs to be setup outside of ember-prop-types getDefaultProps() because it does not work
     // within the timing of tests
     this.set('hook', `${this.parentHook}-${this.id}`)
+
+    if (typeof this.register === 'function') {
+      this.register(this.id, this.type)
+    }
+
     this._super(...arguments)
   },
 
@@ -64,11 +69,11 @@ export default Component.extend(PropTypesMixin, {
   /**
    * Register the id and type of the tab during init.
    */
-  _register: on('init', function () {
-    if (typeof this.register === 'function') {
-      this.register(this.id, this.type)
-    }
-  }),
+  // _register: on('init', function () {
+  //   if (typeof this.register === 'function') {
+  //     this.register(this.id, this.type)
+  //   }
+  // }),
 
   // == Actions ===============================================================
 
